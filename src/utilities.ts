@@ -2,6 +2,7 @@ export interface Project {
   img: string;
   title: string;
   description: string;
+  url: string;
 }
 
 export async function getReadMe(user: string, repo: string) {
@@ -30,6 +31,7 @@ export function parseReadMe(props: { readMe: string; url: string }): Project {
     img: "/images/keyboard.jpg",
     title: "Title here",
     description: "Description here",
+    url: "",
   };
 
   // Parse title

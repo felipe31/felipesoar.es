@@ -10,6 +10,7 @@ import { Box } from "@mui/system";
 import CardList from "./components/CardList";
 import { Project, getReadMe, parseReadMe } from "@/utilities";
 import { useState } from "react";
+import "./globals.css";
 
 export default async function Home() {
   const list: Project[] = [
@@ -27,10 +28,23 @@ export default async function Home() {
     //   },
   ];
 
-  list.push(parseReadMe(await getReadMe("felipe31", "githubbrowser")));
-  list.push(parseReadMe(await getReadMe("felipe31", "quincunx-game")));
-  list.push(parseReadMe(await getReadMe("felipe31", "SistemaVotos")));
-  list.push(parseReadMe(await getReadMe("felipe31", "AlfaBooks")));
+  list.push({
+    ...parseReadMe(await getReadMe("felipe31", "githubbrowser")),
+    url: "https://github.com/felipe31/githubbrowser",
+  });
+  list.push({
+    ...parseReadMe(await getReadMe("felipe31", "quincunx-game")),
+    url: "https://github.com/felipe31/quincunx-game",
+  });
+  list.push({
+    ...parseReadMe(await getReadMe("felipe31", "SistemaVotos")),
+    url: "https://github.com/felipe31/SistemaVotos",
+  });
+  list.push({ ...parseReadMe(await getReadMe("felipe31", "AlfaBooks")), url: "https://github.com/felipe31/AlfaBooks" });
+  list.push({
+    ...parseReadMe(await getReadMe("felipe31", "questionandanswer")),
+    url: "https://github.com/felipe31/questionandanswer",
+  });
 
   return (
     <main className={styles.main}>
