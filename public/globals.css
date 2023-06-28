@@ -5,7 +5,7 @@
     "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
+  --background-start-rgb: 66, 167, 255, 0.1;
   --background-end-rgb: 255, 255, 255;
 
   --primary-glow: conic-gradient(
@@ -64,7 +64,7 @@ body {
 
 body {
   color: rgb(var(--foreground-rgb));
-  /* background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb)); */
+  background: linear-gradient(to bottom, transparent, rgba(var(--background-end-rgb))) rgb(var(--background-start-rgb));
 }
 
 a {
