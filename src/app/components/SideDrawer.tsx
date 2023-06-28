@@ -3,9 +3,8 @@ import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
-import { Avatar, Box, Divider, Drawer, List, Typography } from "@mui/material";
+import { Box, Divider, Drawer, List, Typography } from "@mui/material";
 import SideDrawerListItem from "./SideDrawerListItem";
-import { auto } from "@popperjs/core";
 
 const drawerWidth = 250;
 
@@ -20,11 +19,7 @@ export default function SideDrawer() {
       variant="permanent"
       anchor="left"
     >
-      <Box sx={{ my: "auto", alignItems: "center", width: drawerWidth }}>
-        {/* <Avatar
-          src="https://www.gravatar.com/avatar/682b7d12eff096b4d35ee3437020e081"
-          sx={{ height: "100px", width: "100px", alignSelf: "center", mx: "auto", my: 4 }}
-        /> */}
+      <Box sx={{ my: "auto", alignItems: "center", width: drawerWidth - 2 }}>
         <Typography gutterBottom variant="h5" component="div" align="center">
           Felipe Soares
         </Typography>

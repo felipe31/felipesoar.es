@@ -5,32 +5,28 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Box, CardActionArea } from "@mui/material";
+import { Project } from "@/utilities";
 
-export default function ProjectCard(props: {
-  img: string;
-  title: string;
-  description: string;
-  position?: "left" | "right";
-}) {
+export default function ProjectCard(props: { project: Project; position?: "left" | "right" }) {
   return (
     <Card sx={{ width: 600, height: 200, display: "flex", my: 5 }}>
       {props.position === "left" && (
-        <CardMedia component="img" alt="green iguana" sx={{ width: 200 }} image={props.img} />
+        <CardMedia component="img" alt="green iguana" sx={{ width: 200 }} image={props.project.img} />
       )}
       <CardActionArea>
         <Box sx={{ display: "flex", flexDirection: "column" }}>
           <CardContent>
             <Typography gutterBottom variant="h5" component="div" align="center">
-              {props.title}
+              {props.project.title}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              {props.description}
+              {props.project.description}
             </Typography>
           </CardContent>
         </Box>
       </CardActionArea>
       {props.position === "right" && (
-        <CardMedia component="img" alt="green iguana" sx={{ width: 200 }} image={props.img} />
+        <CardMedia component="img" alt="green iguana" sx={{ width: 200 }} image={props.project.img} />
       )}
     </Card>
   );

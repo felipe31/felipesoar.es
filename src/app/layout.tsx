@@ -1,3 +1,4 @@
+import { StrictMode } from "react";
 import "./globals.css";
 import { Inter } from "next/font/google";
 
@@ -16,7 +17,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <StrictMode>{children}</StrictMode>
+      </body>
     </html>
   );
 }
