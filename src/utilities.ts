@@ -26,7 +26,11 @@ export async function getReadMe(user: string, repo: string) {
 }
 
 export function parseReadMe(props: { readMe: string; url: string }): Project {
-  const _toReturn = { img: "/lizard.jpg", title: "Title here", description: "Description here" };
+  const _toReturn = {
+    img: "/images/keyboard.jpg",
+    title: "Title here",
+    description: "Description here",
+  };
 
   // Parse title
   console.log("Parse title");
