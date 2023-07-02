@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poiret+One&display=swap");
+
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
@@ -26,6 +28,71 @@
   --callout-border-rgb: 172, 175, 176;
   --card-rgb: 180, 185, 188;
   --card-border-rgb: 131, 134, 135;
+
+  /* Playing with colors */
+  --color-background: #babdbf;
+  --color-contrast: #3f7373;
+  --color-base-dark: #7d4b2f;
+  --color-base: #bf754b;
+  --color-base-light: #eed2c3;
+  --color-accent: #a64826;
+  --color-dark: #732b1a;
+
+  --color-back: #000;
+  --color-dark-red: #cd242c;
+  --color-light-red: #e82f34;
+  --color-gray: #ededed;
+}
+
+/* Color Theme Swatches in Hex */
+.Travel-1-hex {
+  color: #babdbf;
+}
+.Travel-2-hex {
+  color: #3f7373;
+}
+.Travel-3-hex {
+  color: #bf754b;
+}
+.Travel-4-hex {
+  color: #a64826;
+}
+.Travel-5-hex {
+  color: #732b1a;
+}
+
+/* Color Theme Swatches in RGBA */
+.Travel-1-rgba {
+  color: rgba(185, 189, 191, 1);
+}
+.Travel-2-rgba {
+  color: rgba(63, 114, 114, 1);
+}
+.Travel-3-rgba {
+  color: rgba(191, 117, 74, 1);
+}
+.Travel-4-rgba {
+  color: rgba(165, 72, 38, 1);
+}
+.Travel-5-rgba {
+  color: rgba(114, 42, 26, 1);
+}
+
+/* Color Theme Swatches in HSLA */
+.Travel-1-hsla {
+  color: hsla(202, 4, 73, 1);
+}
+.Travel-2-hsla {
+  color: hsla(180, 29, 34, 1);
+}
+.Travel-3-hsla {
+  color: hsla(22, 47, 52, 1);
+}
+.Travel-4-hsla {
+  color: hsla(16, 62, 39, 1);
+}
+.Travel-5-hsla {
+  color: hsla(11, 62, 27, 1);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -61,8 +128,9 @@ body {
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom, transparent, rgba(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+  color: var(--color-back);
+  /* color: var(--color-contrast); */
+  background: var(--color-gray);
   /* background: rgb(211, 230, 246) */
 }
 
@@ -76,3 +144,29 @@ a {
     color-scheme: dark;
   }
 } */
+
+.side-drawer {
+  height: 100%;
+  display: flex;
+  /* width: 100%; */
+  /* box-shadow: 5px 5px 10px var(--color-dark); */
+}
+
+.card-description {
+  margin-bottom: 50px;
+  text-align: justify;
+}
+
+.site-name,
+.page-name {
+  font: 600 normal 2em "Poiret One", cursive;
+}
+/* MUI classes */
+
+.MuiTypography-h5 {
+  color: var(--color-light-red);
+}
+
+.MuiListItemButton-root {
+  color: var(--color-dark-red);
+}

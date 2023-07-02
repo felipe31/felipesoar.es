@@ -12,7 +12,7 @@ export default function ProjectCard(props: { project: Project; position?: "left"
     <a href={props.project.url} target="_blank">
       <Card sx={{ width: 600, height: 200, display: "flex", my: 5 }}>
         {props.position === "left" && (
-          <CardMedia component="img" alt="green iguana" sx={{ width: 200 }} image={props.project.img} />
+          <CardMedia component="img" alt="" sx={{ width: 200 }} image={props.project.img} />
         )}
         <CardActionArea>
           <Box sx={{ display: "flex", flexDirection: "column" }}>
@@ -20,14 +20,14 @@ export default function ProjectCard(props: { project: Project; position?: "left"
               <Typography gutterBottom variant="h5" component="div" align="center">
                 {props.project.title}
               </Typography>
-              <Typography variant="body2" color="text.secondary">
+              <Typography variant="body2" color="text.secondary" className="card-description">
                 {props.project.description}
               </Typography>
             </CardContent>
           </Box>
         </CardActionArea>
         {props.position === "right" && (
-          <CardMedia component="img" alt="green iguana" sx={{ width: 200 }} image={props.project.img} />
+          <CardMedia component="img" alt="" sx={{ width: 200 }} image={props.project.img} />
         )}
       </Card>
     </a>
