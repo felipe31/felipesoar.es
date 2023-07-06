@@ -44,7 +44,7 @@ export default function SideDrawer() {
           <Divider />
           <Divider />
           <List>
-            <SideDrawerListItem internal href="http://felipesoar.es" src="/images/user.png" text="About me!" />
+            <SideDrawerListItem internal href="http://felipe31.github.io/" src="/images/user.png" text="About me!" />
           </List>
         </Box>
       </div>

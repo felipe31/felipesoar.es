@@ -56,7 +56,7 @@ export default async function Home() {
         <SideDrawer />
       </header>
       <main className={styles.main}>
-        <div style={{ paddingLeft: 250 }}>
+        <div className="content">
           <div>
             <h3 className="page-name">Projects</h3>
           </div>

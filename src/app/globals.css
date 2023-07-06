@@ -6,6 +6,8 @@
   --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono",
     "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 
+  --font-highlight: "Poiret One", cursive;
+
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 210, 210, 210;
   --background-end-rgb: 255, 255, 255;
@@ -30,69 +32,11 @@
   --card-border-rgb: 131, 134, 135;
 
   /* Playing with colors */
-  --color-background: #babdbf;
-  --color-contrast: #3f7373;
-  --color-base-dark: #7d4b2f;
-  --color-base: #bf754b;
-  --color-base-light: #eed2c3;
-  --color-accent: #a64826;
-  --color-dark: #732b1a;
 
-  --color-back: #000;
+  --color-black: #000;
   --color-dark-red: #cd242c;
   --color-light-red: #e82f34;
   --color-gray: #ededed;
-}
-
-/* Color Theme Swatches in Hex */
-.Travel-1-hex {
-  color: #babdbf;
-}
-.Travel-2-hex {
-  color: #3f7373;
-}
-.Travel-3-hex {
-  color: #bf754b;
-}
-.Travel-4-hex {
-  color: #a64826;
-}
-.Travel-5-hex {
-  color: #732b1a;
-}
-
-/* Color Theme Swatches in RGBA */
-.Travel-1-rgba {
-  color: rgba(185, 189, 191, 1);
-}
-.Travel-2-rgba {
-  color: rgba(63, 114, 114, 1);
-}
-.Travel-3-rgba {
-  color: rgba(191, 117, 74, 1);
-}
-.Travel-4-rgba {
-  color: rgba(165, 72, 38, 1);
-}
-.Travel-5-rgba {
-  color: rgba(114, 42, 26, 1);
-}
-
-/* Color Theme Swatches in HSLA */
-.Travel-1-hsla {
-  color: hsla(202, 4, 73, 1);
-}
-.Travel-2-hsla {
-  color: hsla(180, 29, 34, 1);
-}
-.Travel-3-hsla {
-  color: hsla(22, 47, 52, 1);
-}
-.Travel-4-hsla {
-  color: hsla(16, 62, 39, 1);
-}
-.Travel-5-hsla {
-  color: hsla(11, 62, 27, 1);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -128,9 +72,8 @@ body {
 }
 
 body {
-  color: var(--color-back);
-  /* color: var(--color-contrast); */
-  background: var(--color-gray);
+  color: var(--color-black);
+  background: var(--color-gray) !important;
   /* background: rgb(211, 230, 246) */
 }
 
@@ -148,8 +91,6 @@ a {
 .side-drawer {
   height: 100%;
   display: flex;
-  /* width: 100%; */
-  /* box-shadow: 5px 5px 10px var(--color-dark); */
 }
 
 .card-description {
@@ -159,7 +100,7 @@ a {
 
 .site-name,
 .page-name {
-  font: 600 normal 2em "Poiret One", cursive;
+  font: 600 normal 2em var(--font-highlight) !important;
 }
 /* MUI classes */
 
@@ -167,6 +108,29 @@ a {
   color: var(--color-light-red);
 }
 
-.MuiListItemButton-root {
+/* .MuiListItemButton-root {
   color: var(--color-dark-red);
+} */
+
+.content {
+  padding-left: 250px;
+}
+
+/* Responsive */
+
+@media (max-width: 850px) {
+  .MuiDrawer-root {
+    display: none;
+    visibility: hidden;
+  }
+  .MuiPaper-root {
+    width: 100%;
+  }
+  main {
+    padding-left: 1em !important;
+    padding-right: 1em !important;
+  }
+  .content {
+    padding-left: 0px;
+  }
 }
