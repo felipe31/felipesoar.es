@@ -10,5 +10,5 @@ export default function CardList(props: { resources: Project[] }) {
     _toReturn.push(<ProjectCard project={res} key={idx} position={idx % 2 ? "right" : "left"} />);
   }
 
-  return <div>{_toReturn}</div>;
+  return <div className="card-list">{_toReturn}</div>;
 }

@@ -114,6 +114,20 @@ a {
 
 .content {
   padding-left: 250px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.card-list {
+  margin: auto;
+  width: 100%;
+  /* background-color: #00000046; */
+}
+
+.card-image {
+  max-width: 400px;
+  width: 50%;
+  max-height: 40vh;
 }
 
 /* Responsive */
