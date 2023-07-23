@@ -1,12 +1,13 @@
-@import url("https://fonts.googleapis.com/css2?family=Poiret+One&display=swap");
-
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Poiret+One&display=swap");
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
   --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono",
     "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 
-  --font-highlight: "Poiret One", cursive;
+  --font-highlight: "Poiret One", "Comfortaa", "Roboto", sans-serif;
 
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 210, 210, 210;
@@ -74,7 +75,6 @@ body {
 body {
   color: var(--color-black);
   background: var(--color-gray) !important;
-  /* background: rgb(211, 230, 246) */
 }
 
 a {
@@ -111,10 +111,6 @@ a {
   color: var(--color-light-red);
 }
 
-/* .MuiListItemButton-root {
-  color: var(--color-dark-red);
-} */
-
 .content {
   padding-left: 250px;
   width: 100%;
@@ -141,7 +137,6 @@ a {
 
 .card-image-container {
   max-width: 50%;
-  width: auto;
   display: flex;
   overflow: hidden;
   align-items: center;
@@ -150,8 +145,6 @@ a {
 }
 
 .card-image {
-  /* max-width: 400px;
-  max-height: 40vh; */
   width: auto;
   max-height: 100%;
   max-width: 100%;
