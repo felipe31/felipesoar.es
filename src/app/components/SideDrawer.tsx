@@ -20,9 +20,9 @@ export default function SideDrawer() {
       anchor="left"
     >
       <div className="side-drawer">
-        <Box sx={{ margin: "auto", paddingTop: "1em", alignItems: "center", width: drawerWidth - 2 }}>
+        <Box sx={{ margin: "auto", width: drawerWidth }}>
           <ListItemButton href="/">
-            <Typography gutterBottom variant="h5" component="div" align="center" className="site-name">
+            <Typography gutterBottom variant="h5" component="div" className="site-name">
               Felipe Soares
             </Typography>
           </ListItemButton>

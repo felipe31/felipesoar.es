@@ -9,10 +9,12 @@ import { Project } from "@/utilities";
 
 export default function ProjectCard(props: { project: Project; position?: "left" | "right" }) {
   return (
-    <a href={props.project.url} target="_blank">
-      <Card sx={{ maxWidth: 700, maxHeight: 300, display: "flex", my: 5, mx: "auto" }}>
+    <Card className="card-item">
+      <a href={props.project.url} target="_blank">
         {props.position === "left" && (
-          <CardMedia className="card-image" component="img" alt="" image={props.project.img} />
+          <div className="card-image-container">
+            <CardMedia className="card-image" component="img" alt="" image={props.project.img} />
+          </div>
         )}
         <CardActionArea>
           <Box sx={{ display: "flex", flexDirection: "column" }}>
@@ -27,9 +29,11 @@ export default function ProjectCard(props: { project: Project; position?: "left"
           </Box>
         </CardActionArea>
         {props.position === "right" && (
-          <CardMedia className="card-image" component="img" alt="" image={props.project.img} />
+          <div className="card-image-container">
+            <CardMedia className="card-image" component="img" alt="" image={props.project.img} />
+          </div>
         )}
-      </Card>
-    </a>
+      </a>
+    </Card>
   );
 }
