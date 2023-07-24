@@ -108,8 +108,8 @@ a {
 
 .MuiTypography-h5 {
   color: var(--color-light-red);
-  font-family: var(--font-highlight);
-  font-weight: 600;
+  font-family: var(--font-highlight) !important;
+  font-weight: 600 !important;
 }
 
 .content {
