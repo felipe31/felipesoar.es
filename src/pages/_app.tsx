@@ -1,4 +1,6 @@
-import { StrictMode } from "react";
+import Head from "next/head";
+import "../styles/globals.css";
+
 import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
@@ -7,16 +9,18 @@ export const metadata = {
   description: "My online resume",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+function MyApp({ Component, pageProps }: any) {
   return (
-    <html lang="en">
-      <head>
+    <>
+      <Head>
+        <link rel="icon" href="/favicon.ico" />
+        {/* Add any other meta tags or links you need */}\
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
         <meta name="viewport" content="initial-scale=1, width=device-width" />
-      </head>
-      <body className={inter.className}>
-        <StrictMode>{children}</StrictMode>
-      </body>
-    </html>
+      </Head>
+      <Component {...pageProps} className={inter.className} />
+    </>
   );
 }
+
+export default MyApp;

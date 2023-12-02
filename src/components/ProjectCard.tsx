@@ -10,7 +10,7 @@ import { Project } from "@/utilities";
 export default function ProjectCard(props: { project: Project; position?: "left" | "right" }) {
   return (
     <Card className="card-item">
-      <a href={props.project.url} target="_blank">
+      <a href={props.project.url} target={props.project.url ? "_blank" : ""}>
         {props.position === "left" && (
           <div className="card-image-container">
             <CardMedia className="card-image" component="img" alt="" image={props.project.img} />

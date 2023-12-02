@@ -1,16 +1,20 @@
 "use client";
-import styles from "./page.module.css";
+
+import { StrictMode, useEffect, useState } from "react";
+import styles from "../styles/page.module.css";
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
-import SideDrawer from "./components/SideDrawer";
+import SideDrawer from "../components/SideDrawer";
 import { CssBaseline, ThemeProvider, createTheme } from "@mui/material";
-import CardList from "./components/CardList";
+import CardList from "../components/CardList";
 import { Project, getReadMe, parseReadMe } from "@/utilities";
-import "./globals.css";
 
-export default async function Home() {
+import { Inter } from "next/font/google";
+const inter = Inter({ subsets: ["latin"] });
+
+async function loadList() {
   const list: Project[] = [];
 
   list.push({
@@ -30,6 +34,17 @@ export default async function Home() {
     ...parseReadMe(await getReadMe("felipe31", "questionandanswer")),
     url: "https://github.com/felipe31/questionandanswer",
   });
+
+  return list;
+}
+
+export default function Home() {
+  const [list, setList] = useState([] as Project[]);
+
+  useEffect(() => {
+    loadList().then((result) => setList(result));
+  }, []);
+
   const theme = createTheme({
     components: {
       MuiCard: {
@@ -50,19 +65,21 @@ export default async function Home() {
   });
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <header>
-        <SideDrawer />
-      </header>
-      <main className={styles.main}>
-        <div className="content">
-          <div>
-            <h3 className="page-name">Projects</h3>
+    <div className={inter.className}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <header>
+          <SideDrawer />
+        </header>
+        <main className={styles.main}>
+          <div className="content">
+            <div>
+              <h3 className="page-name">Projects</h3>
+            </div>
+            <CardList resources={list} />
           </div>
-          <CardList resources={list} />
-        </div>
-      </main>
-    </ThemeProvider>
+        </main>
+      </ThemeProvider>
+    </div>
   );
 }

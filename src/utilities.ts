@@ -5,7 +5,7 @@ export interface Project {
   url: string;
 }
 
-const debug = true;
+const debug = false;
 
 export async function getReadMe(user: string, repo: string) {
   let url = `https://raw.githubusercontent.com/${user}/${repo}/`;
