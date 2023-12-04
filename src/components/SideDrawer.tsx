@@ -5,10 +5,16 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import { Box, Divider, Drawer, List, Typography, ListItemButton } from "@mui/material";
 import SideDrawerListItem from "./SideDrawerListItem";
+import { useRouter } from "next/router";
 
 const drawerWidth = 250;
 
 export default function SideDrawer() {
+  const router = useRouter();
+  const internalNav = (e: any, path: string) => {
+    e.preventDefault();
+    router.push(path);
+  };
   return (
     <Drawer
       sx={{
@@ -21,11 +27,20 @@ export default function SideDrawer() {
     >
       <div className="side-drawer">
         <Box sx={{ margin: "auto", width: drawerWidth }}>
-          <ListItemButton href="/">
+          <ListItemButton href="/" onClick={(e: any) => internalNav(e, "/")}>
             <Typography gutterBottom variant="h5" component="div" className="site-name">
               Felipe Soares
             </Typography>
           </ListItemButton>
+          <List>
+            <SideDrawerListItem
+              internal
+              href="/about-me"
+              src="/images/user.png"
+              text="About me!"
+              onClick={(e: any) => internalNav(e, "/about-me")}
+            />
+          </List>
           <Divider />
           <List>
             <SideDrawerListItem href="https://github.com/Felipe31" src="/images/github.png" text="Github" />
@@ -42,10 +57,6 @@ export default function SideDrawer() {
             <SideDrawerListItem href="mailto:felipe31soares@gmail.com" src="/images/email.png" text="Email" />
           </List>
           <Divider />
-          <Divider />
-          <List>
-            <SideDrawerListItem internal href="http://felipe31.github.io/" src="/images/user.png" text="About me!" />
-          </List>
         </Box>
       </div>
     </Drawer>

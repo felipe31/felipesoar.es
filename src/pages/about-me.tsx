@@ -4,6 +4,7 @@ import { CssBaseline } from "@mui/material";
 import { Inter } from "next/font/google";
 import CardList from "@/components/CardList";
 import { Project } from "@/utilities";
+import Layout from "@/components/Layout";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function AboutMe() {
@@ -25,19 +26,11 @@ export default function AboutMe() {
   });
 
   return (
-    <div className={inter.className}>
-      <CssBaseline />
-      <header>
-        <SideDrawer />
-      </header>
-      <main className={styles.main}>
-        <div className="content">
-          <div>
-            <h3 className="page-name">Hello there, I&apos;m Felipe</h3>
-          </div>
-          <CardList resources={list} />
-        </div>
-      </main>
-    </div>
+    <Layout>
+      <div>
+        <h3 className="page-name">Hello there, I&apos;m Felipe</h3>
+      </div>
+      <CardList resources={list} />
+    </Layout>
   );
 }

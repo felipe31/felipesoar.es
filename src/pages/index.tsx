@@ -12,6 +12,7 @@ import CardList from "../components/CardList";
 import { Project, getReadMe, parseReadMe } from "@/utilities";
 
 import { Inter } from "next/font/google";
+import Layout from "@/components/Layout";
 const inter = Inter({ subsets: ["latin"] });
 
 async function loadList() {
@@ -45,41 +46,12 @@ export default function Home() {
     loadList().then((result) => setList(result));
   }, []);
 
-  const theme = createTheme({
-    components: {
-      MuiCard: {
-        styleOverrides: {
-          root: {
-            // borderStyle: "solid",
-            // borderWidth: "1px",
-            // borderColor: "var(--color-dark-red)",
-          },
-        },
-      },
-      MuiDrawer: {
-        styleOverrides: {
-          root: {},
-        },
-      },
-    },
-  });
-
   return (
-    <div className={inter.className}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <header>
-          <SideDrawer />
-        </header>
-        <main className={styles.main}>
-          <div className="content">
-            <div>
-              <h3 className="page-name">Projects</h3>
-            </div>
-            <CardList resources={list} />
-          </div>
-        </main>
-      </ThemeProvider>
-    </div>
+    <Layout>
+      <div>
+        <h3 className="page-name">Projects</h3>
+      </div>
+      <CardList resources={list} />
+    </Layout>
   );
 }
