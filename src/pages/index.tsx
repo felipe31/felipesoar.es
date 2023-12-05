@@ -30,7 +30,10 @@ async function loadList() {
     ...parseReadMe(await getReadMe("felipe31", "SistemaVotos")),
     url: "https://github.com/felipe31/SistemaVotos",
   });
-  list.push({ ...parseReadMe(await getReadMe("felipe31", "AlfaBooks")), url: "https://github.com/felipe31/AlfaBooks" });
+  list.push({
+    ...parseReadMe(await getReadMe("felipe31", "AlfaBooks")),
+    url: "https://github.com/felipe31/AlfaBooks",
+  });
   list.push({
     ...parseReadMe(await getReadMe("felipe31", "questionandanswer")),
     url: "https://github.com/felipe31/questionandanswer",

@@ -7,7 +7,13 @@ import { Project } from "@/utilities";
 export default function CardList(props: { resources: Project[] }) {
   const _toReturn: ReactElement[] = [];
   for (const [idx, res] of props.resources.entries()) {
-    _toReturn.push(<ProjectCard project={res} key={idx} position={idx % 2 ? "right" : "left"} />);
+    _toReturn.push(
+      <ProjectCard
+        project={res}
+        key={idx}
+        position={idx % 2 ? "right" : "left"}
+      />,
+    );
   }
 
   return <div className="card-list">{_toReturn}</div>;

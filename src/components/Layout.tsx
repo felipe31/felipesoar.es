@@ -5,7 +5,11 @@ import { Inter } from "next/font/google";
 import SideDrawer from "./SideDrawer";
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Layout({ children }: { children: JSX.Element | JSX.Element[] }) {
+export default function Layout({
+  children,
+}: {
+  children: JSX.Element | JSX.Element[];
+}) {
   const theme = createTheme({
     components: {
       MuiCard: {

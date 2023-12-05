@@ -3,7 +3,14 @@ import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
-import { Box, Divider, Drawer, List, Typography, ListItemButton } from "@mui/material";
+import {
+  Box,
+  Divider,
+  Drawer,
+  List,
+  Typography,
+  ListItemButton,
+} from "@mui/material";
 import SideDrawerListItem from "./SideDrawerListItem";
 import { useRouter } from "next/router";
 
@@ -28,7 +35,12 @@ export default function SideDrawer() {
       <div className="side-drawer">
         <Box sx={{ margin: "auto", width: drawerWidth }}>
           <ListItemButton href="/" onClick={(e: any) => internalNav(e, "/")}>
-            <Typography gutterBottom variant="h5" component="div" className="site-name">
+            <Typography
+              gutterBottom
+              variant="h5"
+              component="div"
+              className="site-name"
+            >
               Felipe Soares
             </Typography>
           </ListItemButton>
@@ -43,7 +55,11 @@ export default function SideDrawer() {
           </List>
           <Divider />
           <List>
-            <SideDrawerListItem href="https://github.com/Felipe31" src="/images/github.png" text="Github" />
+            <SideDrawerListItem
+              href="https://github.com/Felipe31"
+              src="/images/github.png"
+              text="Github"
+            />
             <SideDrawerListItem
               href="https://www.linkedin.com/in/felipe31soares/"
               src="/images/linkedin.png"
@@ -54,7 +70,11 @@ export default function SideDrawer() {
               src="/images/cv.png"
               text="Curriculum Vitae"
             />
-            <SideDrawerListItem href="mailto:felipe31soares@gmail.com" src="/images/email.png" text="Email" />
+            <SideDrawerListItem
+              href="mailto:felipe31soares@gmail.com"
+              src="/images/email.png"
+              text="Email"
+            />
           </List>
           <Divider />
         </Box>

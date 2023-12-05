@@ -15,7 +15,10 @@ function MyApp({ Component, pageProps }: any) {
       <Head>
         <link rel="icon" href="/favicon.ico" />
         {/* Add any other meta tags or links you need */}\
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        />
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
       <Component {...pageProps} className={inter.className} />

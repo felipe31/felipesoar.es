@@ -21,7 +21,8 @@ export default function AboutMe() {
   list.push({
     img: "",
     title: "Tools",
-    description: "C/C++ | Typescript | Java | PostgreSQL | Node.js | React | Docker | AWS | GCP | Linux",
+    description:
+      "C/C++ | Typescript | Java | PostgreSQL | Node.js | React | Docker | AWS | GCP | Linux",
     url: "",
   });
 

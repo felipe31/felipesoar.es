@@ -22,7 +22,8 @@ export async function getReadMe(user: string, repo: string) {
       url = `${url}${branch}/`;
       break;
     } catch (e) {
-      if (debug) console.log(`Error on fetching README for ${url}${branch}:\n`, e);
+      if (debug)
+        console.log(`Error on fetching README for ${url}${branch}:\n`, e);
     }
   }
 
@@ -51,15 +52,23 @@ export function parseReadMe(props: { readMe: string; url: string }): Project {
 
   // Parse description
   if (debug) console.log("Parse description");
-  const descriptionRegex = new RegExp(/(?:^(?:\n|\r))*(^[^#][\s\S]*?)(?:(\n|\r))/m);
+  const descriptionRegex = new RegExp(
+    /(?:^(?:\n|\r))*(^[^#][\s\S]*?)(?:(\n|\r))/m,
+  );
   if (descriptionRegex.test(props.readMe)) {
     const res = descriptionRegex.exec(props.readMe);
     if (res) {
       _toReturn.description = res[1];
     }
     if (_toReturn.description.length > 320) {
-      const previousPeriod = _toReturn.description.lastIndexOf(".", _toReturn.description.length - 2);
-      _toReturn.description = _toReturn.description.slice(0, previousPeriod + 1);
+      const previousPeriod = _toReturn.description.lastIndexOf(
+        ".",
+        _toReturn.description.length - 2,
+      );
+      _toReturn.description = _toReturn.description.slice(
+        0,
+        previousPeriod + 1,
+      );
     }
   }
   if (debug) console.log(descriptionRegex.test(props.readMe));
@@ -70,9 +79,14 @@ export function parseReadMe(props: { readMe: string; url: string }): Project {
   // Parse markdown image ![name](url)
   const imageMarkdownRegex = new RegExp(/(?:^\![\s\S]+?\()(.*?)(?:\))/m);
   // Parse HTML image <img src="url"/>
-  const imageHTMLRegex = new RegExp(/(?:^<img[\s\S]+?src=")(.*?)(?:"[\s\S]*?\/>)/m);
+  const imageHTMLRegex = new RegExp(
+    /(?:^<img[\s\S]+?src=")(.*?)(?:"[\s\S]*?\/>)/m,
+  );
 
-  if (imageMarkdownRegex.test(props.readMe) || imageHTMLRegex.test(props.readMe)) {
+  if (
+    imageMarkdownRegex.test(props.readMe) ||
+    imageHTMLRegex.test(props.readMe)
+  ) {
     const resMarkdown = imageMarkdownRegex.exec(props.readMe);
     const resHTML = imageHTMLRegex.exec(props.readMe);
     if (debug) console.log(resMarkdown);
@@ -86,7 +100,11 @@ export function parseReadMe(props: { readMe: string; url: string }): Project {
       _toReturn.img = `${props.url}${_toReturn.img}`;
     }
   }
-  if (debug) console.log(imageMarkdownRegex.test(props.readMe), imageHTMLRegex.test(props.readMe));
+  if (debug)
+    console.log(
+      imageMarkdownRegex.test(props.readMe),
+      imageHTMLRegex.test(props.readMe),
+    );
 
   if (debug) console.log(_toReturn);
   return _toReturn;
