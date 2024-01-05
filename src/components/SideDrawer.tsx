@@ -41,7 +41,9 @@ export default function SideDrawer() {
               component="div"
               className="site-name"
             >
-              Felipe Soares
+              Felipe Soar
+              <span style={{ fontSize: "1.5em", margin: "0 2px" }}>.</span>
+              es
             </Typography>
           </ListItemButton>
           <List>
