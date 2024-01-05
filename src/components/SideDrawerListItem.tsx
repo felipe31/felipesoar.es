@@ -23,7 +23,7 @@ export default function SideDrawerListItem(props: {
     <ListItem
       key={props.text}
       disablePadding
-      style={props.highlight ? { backgroundColor: "#ffc9c9" } : {}}
+      style={props.highlight ? { backgroundColor: "#fde2e2" } : {}}
     >
       <ListItemButton
         href={props.href}
