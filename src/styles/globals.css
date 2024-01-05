@@ -47,7 +47,8 @@
 
   --color-black: #000;
   --color-dark-red: #cd242c;
-  --color-light-red: #e82f34;
+  --color-primary: #e82f34;
+  --color-primary-light: #fde2e2;
   --color-gray: #ededed;
 }
 
@@ -103,6 +104,10 @@ a {
   height: 100%;
   display: flex;
 }
+.top-drawer {
+  width: 100%;
+  display: none;
+}
 
 .card-description {
   margin-bottom: 50px;
@@ -119,7 +124,7 @@ a {
 /* MUI classes */
 
 .MuiTypography-h5 {
-  color: var(--color-light-red);
+  color: var(--color-primary);
   font-family: var(--font-highlight) !important;
   font-weight: 600 !important;
 }
@@ -164,9 +169,16 @@ a {
   object-fit: cover !important;
 }
 
+.highlight-background {
+  background-color: var(--color-primary-light);
+}
 /* Responsive */
 
 @media (max-width: 850px) {
+  .top-drawer {
+    display: block;
+    visibility: visible;
+  }
   .MuiDrawer-root {
     display: none;
     visibility: hidden;

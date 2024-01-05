@@ -12,28 +12,47 @@ import {
 } from "@mui/material";
 
 export default function SideDrawerListItem(props: {
-  text: string;
+  text?: string;
   src: string;
   href: string;
   internal?: boolean;
   highlight?: boolean;
+  horizontal?: boolean;
   onClick?: React.MouseEventHandler<HTMLAnchorElement>;
 }) {
   return (
     <ListItem
       key={props.text}
       disablePadding
-      style={props.highlight ? { backgroundColor: "#fde2e2" } : {}}
+      className={props.highlight ? "highlight-background" : ""}
+      sx={
+        props.horizontal
+          ? {
+              width: "fit-content",
+              borderRadius: "10px",
+            }
+          : {}
+      }
     >
       <ListItemButton
         href={props.href}
         target={props.internal ? "" : "_blank"}
         onClick={props.onClick}
+        sx={{
+          minWidth: "fit-content",
+          ...(props.horizontal ? { borderRadius: "10px" } : {}),
+        }}
       >
-        <ListItemAvatar>
+        <ListItemAvatar
+          sx={{
+            minWidth: "fit-content",
+          }}
+        >
           <Avatar src={props.src} sx={{ height: "30px", width: "30px" }} />
         </ListItemAvatar>
-        <ListItemText primary={props.text} />
+        {!!props.text && (
+          <ListItemText primary={props.text} sx={{ paddingLeft: "26px" }} />
+        )}
       </ListItemButton>
     </ListItem>
   );

@@ -1,11 +1,6 @@
-import styles from "../styles/page.module.css";
-import SideDrawer from "@/components/SideDrawer";
-import { CssBaseline } from "@mui/material";
-import { Inter } from "next/font/google";
 import CardList from "@/components/CardList";
 import { Project } from "@/utilities";
 import Layout from "@/components/Layout";
-const inter = Inter({ subsets: ["latin"] });
 
 export default function AboutMe() {
   const list: Project[] = [];

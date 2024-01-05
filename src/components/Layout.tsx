@@ -3,6 +3,7 @@ import styles from "../styles/page.module.css";
 
 import { Inter } from "next/font/google";
 import SideDrawer from "./SideDrawer";
+import { TopDrawer } from "./TopDrawer";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Layout({
@@ -35,6 +36,7 @@ export default function Layout({
         <CssBaseline />
         <header>
           <SideDrawer />
+          <TopDrawer />
         </header>
         <main className={styles.main}>
           <div className="content">{children}</div>
