@@ -10,17 +10,21 @@ import {
   ListItemButton,
   ListItemText,
 } from "@mui/material";
-import EventEmitter from "events";
 
 export default function SideDrawerListItem(props: {
   text: string;
   src: string;
   href: string;
   internal?: boolean;
+  highlight?: boolean;
   onClick?: React.MouseEventHandler<HTMLAnchorElement>;
 }) {
   return (
-    <ListItem key={props.text} disablePadding>
+    <ListItem
+      key={props.text}
+      disablePadding
+      style={props.highlight ? { backgroundColor: "#ffc9c9" } : {}}
+    >
       <ListItemButton
         href={props.href}
         target={props.internal ? "" : "_blank"}

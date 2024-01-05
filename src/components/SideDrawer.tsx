@@ -75,7 +75,8 @@ export default function SideDrawer() {
             <SideDrawerListItem
               href="mailto:felipe31soares@gmail.com"
               src="/images/email.png"
-              text="Email"
+              text="Email me!"
+              highlight
             />
           </List>
           <Divider />
