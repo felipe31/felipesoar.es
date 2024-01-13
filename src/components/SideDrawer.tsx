@@ -3,12 +3,25 @@ import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
-import { Box, Divider, Drawer, List, Typography, ListItemButton } from "@mui/material";
+import {
+  Box,
+  Divider,
+  Drawer,
+  List,
+  Typography,
+  ListItemButton,
+} from "@mui/material";
 import SideDrawerListItem from "./SideDrawerListItem";
+import { useRouter } from "next/router";
 
 const drawerWidth = 250;
 
 export default function SideDrawer() {
+  const router = useRouter();
+  const internalNav = (e: any, path: string) => {
+    e.preventDefault();
+    router.push(path);
+  };
   return (
     <Drawer
       sx={{
@@ -21,14 +34,32 @@ export default function SideDrawer() {
     >
       <div className="side-drawer">
         <Box sx={{ margin: "auto", width: drawerWidth }}>
-          <ListItemButton href="/">
-            <Typography gutterBottom variant="h5" component="div" className="site-name">
+          <ListItemButton href="/" onClick={(e: any) => internalNav(e, "/")}>
+            <Typography
+              gutterBottom
+              variant="h5"
+              component="div"
+              className="site-name"
+            >
               Felipe Soares
             </Typography>
           </ListItemButton>
+          <List>
+            <SideDrawerListItem
+              internal
+              href="/about-me"
+              src="/images/user.png"
+              text="About me!"
+              onClick={(e: any) => internalNav(e, "/about-me")}
+            />
+          </List>
           <Divider />
           <List>
-            <SideDrawerListItem href="https://github.com/Felipe31" src="/images/github.png" text="Github" />
+            <SideDrawerListItem
+              href="https://github.com/Felipe31"
+              src="/images/github.png"
+              text="Github"
+            />
             <SideDrawerListItem
               href="https://www.linkedin.com/in/felipe31soares/"
               src="/images/linkedin.png"
@@ -39,13 +70,14 @@ export default function SideDrawer() {
               src="/images/cv.png"
               text="Curriculum Vitae"
             />
-            <SideDrawerListItem href="mailto:felipe31soares@gmail.com" src="/images/email.png" text="Email" />
+            <SideDrawerListItem
+              href="mailto:felipe31soares@gmail.com"
+              src="/images/email.png"
+              text="Email me!"
+              highlight
+            />
           </List>
           <Divider />
-          <Divider />
-          <List>
-            <SideDrawerListItem internal href="http://felipe31.github.io/" src="/images/user.png" text="About me!" />
-          </List>
         </Box>
       </div>
     </Drawer>

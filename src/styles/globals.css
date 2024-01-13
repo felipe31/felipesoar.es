@@ -3,8 +3,9 @@
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono",
-    "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
+    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
+    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 
   --font-highlight: "Poiret One", "Comfortaa", "Roboto", sans-serif;
 
@@ -20,11 +21,22 @@
     #0071ff33 160deg,
     transparent 360deg
   );
-  --secondary-glow: radial-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+  --secondary-glow: radial-gradient(
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0)
+  );
 
   --tile-start-rgb: 239, 245, 249;
   --tile-end-rgb: 228, 232, 233;
-  --tile-border: conic-gradient(#00000080, #00000040, #00000030, #00000020, #00000010, #00000010, #00000080);
+  --tile-border: conic-gradient(
+    #00000080,
+    #00000040,
+    #00000030,
+    #00000020,
+    #00000010,
+    #00000010,
+    #00000080
+  );
 
   --callout-rgb: 238, 240, 241;
   --callout-border-rgb: 172, 175, 176;
@@ -35,7 +47,8 @@
 
   --color-black: #000;
   --color-dark-red: #cd242c;
-  --color-light-red: #e82f34;
+  --color-primary: #2f33e8;
+  --color-primary-light: #d2d3fc;
   --color-gray: #ededed;
 }
 
@@ -91,6 +104,10 @@ a {
   height: 100%;
   display: flex;
 }
+.top-drawer {
+  width: 100%;
+  display: none;
+}
 
 .card-description {
   margin-bottom: 50px;
@@ -107,7 +124,7 @@ a {
 /* MUI classes */
 
 .MuiTypography-h5 {
-  color: var(--color-light-red);
+  color: var(--color-primary);
   font-family: var(--font-highlight) !important;
   font-weight: 600 !important;
 }
@@ -152,9 +169,16 @@ a {
   object-fit: cover !important;
 }
 
+.highlight-background {
+  background-color: var(--color-primary-light);
+}
 /* Responsive */
 
 @media (max-width: 850px) {
+  .top-drawer {
+    display: block;
+    visibility: visible;
+  }
   .MuiDrawer-root {
     display: none;
     visibility: hidden;
