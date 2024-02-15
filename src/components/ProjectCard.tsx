@@ -6,14 +6,22 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Box, CardActionArea } from "@mui/material";
 import { Project } from "@/utilities";
+import { useRouter } from "next/router";
 
 export default function ProjectCard(props: {
   project: Project;
   position?: "left" | "right";
 }) {
+  const router = useRouter();
+  const nav = (e: any, path: string) => {
+    e.preventDefault();
+    if (path.startsWith("https://")) {
+      window.open(path, "_blank");
+    } else router.push(path);
+  };
   return (
-    <Card className="card-item">
-      <a href={props.project.url} target={props.project.url ? "_blank" : ""}>
+    <Card className="card-item" onClick={(e: any) => nav(e, props.project.url)}>
+      <a>
         {props.position === "left" && (
           <div className="card-image-container">
             <CardMedia
@@ -35,13 +43,13 @@ export default function ProjectCard(props: {
               >
                 {props.project.title}
               </Typography>
-              <Typography
-                variant="body2"
+              <Box
+                sx={{ whiteSpace: "pre-wrap" }}
                 color="text.secondary"
                 className="card-description"
               >
                 {props.project.description}
-              </Typography>
+              </Box>
             </CardContent>
           </Box>
         </CardActionArea>
