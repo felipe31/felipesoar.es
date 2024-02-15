@@ -110,8 +110,10 @@ a {
 }
 
 .card-description {
-  margin-bottom: 50px;
+  margin-bottom: 10px;
   text-align: justify;
+  font-size: medium;
+  line-height: 1.6;
 }
 
 .site-name,
@@ -143,8 +145,8 @@ a {
 
 .card-item {
   margin: 40px auto;
-  max-width: 700px;
-  max-height: 300px;
+  max-width: 1080px;
+  /* max-height: 300px; */
 }
 
 .card-item a {
