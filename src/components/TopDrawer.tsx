@@ -49,12 +49,12 @@ export function TopDrawer() {
             horizontal
           />
           <SideDrawerListItem
-            href="https://drive.google.com/file/d/1-9ATtaSIhzXySCv7H--xVisxy64oUy6q/view?usp=sharing"
+            href="https://drive.google.com/file/d/1c2_OZb44OMPTVtyfaEvP_8OjANROhbZ1/view?usp=sharing"
             src="/images/cv.png"
             horizontal
           />
           <SideDrawerListItem
-            href="mailto:felipe31soares@gmail.com"
+            href="mailto:me@felipesoar.es"
             src="/images/email.png"
             highlight
             horizontal
