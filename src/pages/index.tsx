@@ -19,6 +19,10 @@ async function loadList() {
   const list: Project[] = [];
 
   list.push({
+    ...parseReadMe(await getReadMe("felipe31", "nodejsapi")),
+    url: "https://github.com/felipe31/nodejsapi",
+  });
+  list.push({
     ...parseReadMe(await getReadMe("felipe31", "githubbrowser")),
     url: "https://github.com/felipe31/githubbrowser",
   });
