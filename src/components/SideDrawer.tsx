@@ -66,12 +66,12 @@ export default function SideDrawer() {
               text="Linkedin"
             />
             <SideDrawerListItem
-              href="https://drive.google.com/file/d/1-9ATtaSIhzXySCv7H--xVisxy64oUy6q/view?usp=sharing"
+              href="https://drive.google.com/file/d/1c2_OZb44OMPTVtyfaEvP_8OjANROhbZ1/view?usp=sharing"
               src="/images/cv.png"
               text="Curriculum Vitae"
             />
             <SideDrawerListItem
-              href="mailto:felipe31soares@gmail.com"
+              href="mailto:me@felipesoar.es"
               src="/images/email.png"
               text="Email me!"
               highlight
