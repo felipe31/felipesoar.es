@@ -41,7 +41,7 @@ export default function AboutMe() {
 
   list.push({
     img: "",
-    title: "Funding Software Developer @ Oops Cupom",
+    title: "Founding Software Developer @ Oops Cupom",
     description: `• Implemented an Android application written in Java.
 
 • Developed a landing page using PHP connected to DynamoDB.
