@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ViníL Center - Comunicação Visual | Ponta Grossa PR</title>
+    <meta name="description" content="ViníL Center - Especialistas em comunicação visual em Ponta Grossa. Adesivos, banners, fachadas ACM, luminosos, plotagem de veículos e muito mais.">
+    <meta name="keywords" content="comunicação visual, adesivos, banners, fachadas, luminosos, plotagem, Ponta Grossa">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-orange: #FF8C00;
+            --secondary-silver: #C0C0C0;
+            --background-brown: #8B4B3B;
+            --dark-brown: #5D2F1F;
+            --accent-blue: #007BFF;
+            --accent-green: #28A745;
+            --accent-pink: #E83E8C;
+            --accent-yellow: #FFC107;
+            --text-dark: #2c2c2c;
+            --text-light: #ffffff;
+            --gradient-primary: linear-gradient(135deg, var(--primary-orange), #FFB347);
+            --gradient-secondary: linear-gradient(135deg, var(--background-brown), var(--dark-brown));
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading Animation */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-secondary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loader-content {
+            text-align: center;
+            color: white;
+        }
+
+        .loader-logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-orange);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(139, 75, 59, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            padding: 1rem 0;
+        }
+
+        .header.scrolled {
+            background: rgba(139, 75, 59, 0.98);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-orange);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo::before {
+            content: '🎨';
+            font-size: 2rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-orange);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-orange);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: var(--gradient-secondary);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(90deg, 
+                var(--accent-pink) 0%,
+                var(--accent-blue) 14.28%,
+                var(--accent-green) 28.56%,
+                var(--accent-yellow) 42.84%,
+                var(--primary-orange) 57.12%,
+                var(--accent-pink) 71.4%,
+                var(--accent-blue) 85.68%,
+                var(--accent-green) 100%
+            );
+            animation: colorWave 4s ease-in-out infinite;
+        }
+
+        @keyframes colorWave {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(-10px); }
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+            color: white;
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            animation: slideInUp 1s ease;
+        }
+
+        .hero .brand-name {
+            color: var(--primary-orange);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero .tagline {
+            color: var(--secondary-silver);
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            animation: slideInUp 1s ease 0.2s both;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: slideInUp 1s ease 0.4s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: slideInUp 1s ease 0.6s both;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 140, 0, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 140, 0, 0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid var(--secondary-silver);
+        }
+
+        .btn-secondary:hover {
+            background: var(--secondary-silver);
+            color: var(--text-dark);
+            transform: translateY(-2px);
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Floating Animation */
+        .floating {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            background: var(--accent-blue);
+            animation-delay: 0s;
+        }
+
+        .floating:nth-child(2) {
+            top: 60%;
+            right: 15%;
+            background: var(--accent-pink);
+            animation-delay: 2s;
+        }
+
+        .floating:nth-child(3) {
+            bottom: 20%;
+            left: 20%;
+            background: var(--accent-green);
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Services Section */
+        .services {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary-orange);
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 0;
+            background: var(--gradient-secondary);
+            color: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--primary-orange);
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-features {
+            list-style: none;
+        }
+
+        .about-features li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .about-features i {
+            color: var(--primary-orange);
+            font-size: 1.2rem;
+        }
+
+        .about-visual {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            height: 400px;
+        }
+
+        .visual-card {
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .visual-card:nth-child(1) {
+            background: var(--accent-blue);
+            grid-row: span 2;
+        }
+
+        .visual-card:nth-child(2) {
+            background: var(--accent-green);
+        }
+
+        .visual-card:nth-child(3) {
+            background: var(--accent-pink);
+        }
+
+        .visual-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 0;
+            background: #f8f9fa;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info {
+            padding: 2rem;
+        }
+
+        .contact-info h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--background-brown);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .contact-text a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-text a:hover {
+            color: var(--primary-orange);
+        }
+
+        .map-container {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .map-placeholder {
+            background: var(--gradient-secondary);
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--background-brown);
+            color: white;
+            padding: 3rem 0 1rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-orange);
+        }
+
+        .footer-section p, 
+        .footer-section a {
+            color: var(--secondary-silver);
+            text-decoration: none;
+            line-height: 1.6;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-orange);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .social-link.whatsapp {
+            background: #25D366;
+        }
+
+        .social-link.phone {
+            background: var(--accent-blue);
+        }
+
+        .social-link:hover {
+            transform: scale(1.1);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 1rem;
+            color: var(--secondary-silver);
+        }
+
+        /* Rainbow Border Animation */
+        .rainbow-border {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .rainbow-border::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, 
+                var(--accent-pink),
+                var(--accent-blue),
+                var(--accent-green),
+                var(--accent-yellow),
+                var(--primary-orange)
+            );
+            animation: rainbow-slide 3s linear infinite;
+        }
+
+        @keyframes rainbow-slide {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-visual {
+                height: 300px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .visual-card:nth-child(1) {
+                grid-row: span 1;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            animation: bounce 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-logo">ViníL Center</div>
+            <p>Carregando...</p>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <a href="#" class="logo">ViníL Center</a>
+            <ul class="nav-menu">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#services">Serviços</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+            <div class="mobile-menu" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="floating"></div>
+        <div class="floating"></div>
+        <div class="floating"></div>
+        
+        <div class="hero-content">
+            <h1><span class="brand-name">ViníL Center</span></h1>
+            <p class="tagline">COMUNICAÇÃO VISUAL</p>
+            <p>Transformamos suas ideias em realidade visual. Especialistas em comunicação visual em Ponta Grossa com mais de 10 anos de experiência no mercado.</p>
+            
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">
+                    <i class="fas fa-phone"></i>
+                    Fale Conosco
+                </a>
+                <a href="#services" class="btn btn-secondary">
+                    <i class="fas fa-eye"></i>
+                    Ver Serviços
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title fade-in">Nossos Serviços</h2>
+            
+            <div class="services-grid">
+                <div class="service-card fade-in rainbow-border">
+                    <div class="service-icon">
+                        <i class="fas fa-sticky-note"></i>
+                    </div>
+                    <h3>Adesivos & Banner's</h3>
+                    <p>Adesivos personalizados e banners de alta qualidade para divulgar sua marca com impacto visual.</p>
+                </div>
+
+                <div class="service-card fade-in rainbow-border">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Fachadas ACM</h3>
+                    <p>Fachadas em ACM e sistemas de iluminação LED para destacar seu estabelecimento.</p>
+                </div>
+
+                <div class="service-card fade-in rainbow-border">
+                    <div class="service-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Luminosos</h3>
+                    <p>Letreiros luminosos e placas iluminadas para maior visibilidade 24 horas por dia.</p>
+                </div>
+
+                <div class="service-card fade-in rainbow-border">
+                    <div class="service-icon">
+                        <i class="fas fa-id-card"></i>
+                    </div>
+                    <h3>Cartões de Visita</h3>
+                    <p>Cartões de visita exclusivos e profissionais para fortalecer sua marca pessoal.</p>
+                </div>
+
+                <div class="service-card fade-in rainbow-border">
+                    <div class="service-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3>Plotagem de Veículos</h3>
+                    <p>Transforme seu veículo em uma ferramenta de marketing móvel com plotagem profissional.</p>
+                </div>
+
+                <div class="service-card fade-in rainbow-border">
+                    <div class="service-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3>Pistas de Dança</h3>
+                    <p>Pistas de dança personalizadas para eventos e estabelecimentos comerciais.</p>
+                </div>
+
+                <div class="service-card fade-in rainbow-border">
+                    <div class="service-icon">
+                        <i class="fas fa-print"></i>
+                    </div>
+                    <h3>Impressão Digital</h3>
+                    <p>Impressão digital em diversos materiais com qualidade fotográfica e cores vibrantes.</p>
+                </div>
+
+                <div class="service-card fade-in rainbow-border">
+                    <div class="service-icon">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <h3>Cortes PCV & Acrílico</h3>
+                    <p>Cortes precisos em PCV e acrílico para placas, letras e peças personalizadas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <h2>Por que escolher a ViníL Center?</h2>
+                    <p>Com mais de uma década de experiência no mercado de comunicação visual, a ViníL Center se destaca pela qualidade, inovação e atendimento personalizado.</p>
+                    <p>Localizada estrategicamente em Ponta Grossa, atendemos toda a região com soluções completas em comunicação visual.</p>
+                    
+                    <ul class="about-features">
+                        <li><i class="fas fa-check-circle"></i>Mais de 10 anos de experiência</li>
+                        <li><i class="fas fa-check-circle"></i>Tecnologia de ponta</li>
+                        <li><i class="fas fa-check-circle"></i>Atendimento personalizado</li>
+                        <li><i class="fas fa-check-circle"></i>Entrega rápida</li>
+                        <li><i class="fas fa-check-circle"></i>Preços competitivos</li>
+                        <li><i class="fas fa-check-circle"></i>Garantia de qualidade</li>
+                    </ul>
+                </div>
+
+                <div class="about-visual fade-in">
+                    <div class="visual-card">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <div class="visual-card">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <div class="visual-card">
+                        <i class="fas fa-award"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title fade-in">Entre em Contato</h2>
+            
+            <div class="contact-content">
+                <div class="contact-info fade-in">
+                    <h2>Fale Conosco</h2>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <strong>Endereço</strong><br>
+                            Francisco Camerino, frente 369<br>
+                            Orías - Ponta Grossa, PR
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <strong>Telefone</strong><br>
+                            <a href="tel:+554232230647">(42) 3223-0647</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="contact-text">
+                            <strong>WhatsApp</strong><br>
+                            <a href="https://wa.me/5542988665212?text=Olá! Gostaria de saber mais sobre os serviços da ViníL Center." target="_blank">(42) 98866-5212</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <strong>Horário de Funcionamento</strong><br>
+                            Segunda a Sexta: 8h às 18h<br>
+                            Sábado: 8h às 12h
+                        </div>
+                    </div>
+                </div>
+
+                <div class="map-container fade-in">
+                    <div class="map-placeholder">
+                        <div style="text-align: center;">
+                            <i class="fas fa-map-marked-alt" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                            <p>📍 Francisco Camerino, frente 369<br>Orías - Ponta Grossa, PR</p>
+                            <p style="opacity: 0.8; font-size: 1rem;">Clique para abrir no Google Maps</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ViníL Center</h3>
+                    <p>Comunicação Visual</p>
+                    <p>Transformando ideias em realidade visual desde 2013. Qualidade, inovação e atendimento personalizado.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Serviços</h3>
+                    <p><a href="#services">Adesivos & Banner's</a></p>
+                    <p><a href="#services">Fachadas ACM & Luminosos</a></p>
+                    <p><a href="#services">Plotagem de Veículos</a></p>
+                    <p><a href="#services">Impressão Digital</a></p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <p>Francisco Camerino, frente 369</p>
+                    <p>Orías - Ponta Grossa, PR</p>
+                    <p><a href="tel:+554232230647">(42) 3223-0647</a></p>
+                    <p><a href="https://wa.me/5542988665212" target="_blank">(42) 98866-5212</a></p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Redes Sociais</h3>
+                    <div class="social-links">
+                        <a href="https://wa.me/5542988665212?text=Olá! Gostaria de saber mais sobre os serviços da ViníL Center." target="_blank" class="social-link whatsapp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="tel:+554232230647" class="social-link phone">
+                            <i class="fas fa-phone"></i>
+                        </a>
+                    </div>
+                    <p style="margin-top: 1rem;">Siga-nos para acompanhar nossos trabalhos e novidades!</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 ViníL Center - Comunicação Visual. Todos os direitos reservados.</p>
+                <p>Desenvolvido com ❤️ para destacar sua marca</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/5542988665212?text=Olá! Gostaria de saber mais sobre os serviços da ViníL Center." target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Loading Screen
+        window.addEventListener('load', function() {
+            const loader = document.getElementById('loader');
+            setTimeout(() => {
+                loader.style.opacity = '0';
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 500);
+            }, 2000);
+        });
+
+        // Header Scroll Effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth Scroll for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = document.getElementById('header').offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for Fade-in Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        mobileMenu.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+        });
+
+        // Map Click Handler
+        document.querySelector('.map-container').addEventListener('click', function() {
+            const address = 'Francisco Camerino frente 369, Orías, Ponta Grossa, PR';
+            const encodedAddress = encodeURIComponent(address);
+            window.open(`https://www.google.com/maps/search/?api=1&query=${encodedAddress}`, '_blank');
+        });
+
+        // Service Cards Hover Effect
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Visual Cards Click Effect
+        document.querySelectorAll('.visual-card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.style.animation = 'pulse 0.6s ease';
+                setTimeout(() => {
+                    this.style.animation = '';
+                }, 600);
+            });
+        });
+
+        // Contact Items Click Effects
+        document.querySelectorAll('.contact-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const link = this.querySelector('a');
+                if (link) {
+                    link.click();
+                }
+            });
+        });
+
+        // Dynamic Time-based Greeting
+        function updateGreeting() {
+            const hour = new Date().getHours();
+            const hero = document.querySelector('.hero p');
+            let greeting = '';
+            
+            if (hour < 12) {
+                greeting = '🌅 Bom dia! ';
+            } else if (hour < 18) {
+                greeting = '☀️ Boa tarde! ';
+            } else {
+                greeting = '🌙 Boa noite! ';
+            }
+            
+            hero.innerHTML = greeting + hero.innerHTML.replace(/^(🌅|☀️|🌙)\s*(Bom dia|Boa tarde|Boa noite)!\s*/, '');
+        }
+
+        // Call greeting function on load
+        updateGreeting();
+
+        // Add parallax effect to hero section
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            const heroContent = document.querySelector('.hero-content');
+            
+            if (hero && heroContent) {
+                heroContent.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Add typing effect to brand name
+        function typeWriter(element, text, speed = 100) {
+            element.innerHTML = '';
+            let i = 0;
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            
+            type();
+        }
+
+        // Initialize typing effect after page load
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                const brandName = document.querySelector('.brand-name');
+                if (brandName) {
+                    typeWriter(brandName, 'ViníL Center', 150);
+                }
+            }, 2500);
+        });
+
+        // Add rainbow animation to service cards on scroll
+        const serviceCards = document.querySelectorAll('.service-card');
+        let animationDelay = 0;
+
+        serviceCards.forEach((card, index) => {
+            observer.observe(card);
+            card.addEventListener('animationend', function() {
+                this.style.animation = '';
+            });
+        });
+
+        // Add click-to-call functionality
+        document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (!('ontouchstart' in window)) {
+                    e.preventDefault();
+                    const phone = this.getAttribute('href').replace('tel:', '');
+                    alert(`Ligue para: ${phone}`);
+                }
+            });
+        });
+
+        // Add success animation for WhatsApp button
+        document.querySelector('.whatsapp-float').addEventListener('click', function() {
+            this.style.animation = 'none';
+            this.offsetHeight; // Trigger reflow
+            this.style.animation = 'bounce 0.6s ease';
+        });
+
+        // Console easter egg
+        console.log(`
+        🎨 ViníL Center - Comunicação Visual
+        =====================================
+        
+        Obrigado por visitar nosso site!
+        
+        📱 WhatsApp: (42) 98866-5212
+        📞 Telefone: (42) 3223-0647
+        📍 Endereço: Francisco Camerino, frente 369 - Orías, Ponta Grossa, PR
+        
+        Transformamos suas ideias em realidade visual! 🚀
+        `);
+    </script>
+</body>
+</html>

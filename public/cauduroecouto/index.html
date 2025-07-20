@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cauduro & Couto Marcenaria | Móveis Sob Medida de Alto Padrão</title>
+    <meta name="description" content="Cauduro & Couto Marcenaria - Especialistas em móveis sob medida de alto padrão. Cozinhas, quartos, banheiros, closets e muito mais.">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #B85450;
+            --secondary-color: #8B4513;
+            --accent-color: #D4A574;
+            --dark-color: #2C1810;
+            --light-color: #F8F6F3;
+            --white: #FFFFFF;
+            --shadow: rgba(184, 84, 80, 0.1);
+            --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            --gradient-accent: linear-gradient(135deg, var(--accent-color), #E8C49C);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background: var(--light-color);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Loading Screen */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loader-content {
+            text-align: center;
+            color: var(--white);
+        }
+
+        .loader-logo {
+            width: 80px;
+            height: 80px;
+            border: 4px solid rgba(255,255,255,0.3);
+            border-top: 4px solid var(--white);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(248, 246, 243, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px var(--shadow);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--dark-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--gradient-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="1" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: var(--white);
+            max-width: 600px;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            animation: slideInLeft 1s ease 0.5s both;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: slideInLeft 1s ease 0.7s both;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+            animation: slideInLeft 1s ease 0.9s both;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            animation: slideInUp 1s ease 1.1s both;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--primary-color);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 0;
+            background: var(--white);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            text-align: center;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+            margin-bottom: 3rem;
+            opacity: 0.8;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 40px var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(184, 84, 80, 0.1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(184, 84, 80, 0.2);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: var(--white);
+        }
+
+        .service-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+
+        .service-description {
+            color: var(--secondary-color);
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            padding: 5rem 0;
+            background: var(--light-color);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .portfolio-item {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(184, 84, 80, 0.2);
+        }
+
+        .portfolio-image {
+            height: 250px;
+            background: var(--gradient-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--white);
+        }
+
+        .portfolio-content {
+            padding: 1.5rem;
+        }
+
+        .portfolio-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-description {
+            color: var(--secondary-color);
+            opacity: 0.8;
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 0;
+            background: var(--white);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            height: 400px;
+            background: var(--gradient-primary);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--white);
+        }
+
+        .about-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+            line-height: 1.7;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .stat-label {
+            color: var(--secondary-color);
+            opacity: 0.8;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 0;
+            background: var(--light-color);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px var(--shadow);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(184, 84, 80, 0.1);
+        }
+
+        .contact-item:last-child {
+            border-bottom: none;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.2rem;
+        }
+
+        .contact-details h4 {
+            color: var(--dark-color);
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-details p {
+            color: var(--secondary-color);
+            opacity: 0.8;
+        }
+
+        .contact-details a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--dark-color);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid rgba(184, 84, 80, 0.1);
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: var(--light-color);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(184, 84, 80, 0.1);
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--gradient-primary);
+            color: var(--white);
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            line-height: 1.6;
+        }
+
+        .footer-section a:hover {
+            color: var(--white);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--white);
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 1rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .slide-up {
+            transform: translateY(50px);
+            opacity: 0;
+            animation: slideUp 0.8s ease forwards;
+        }
+
+        @keyframes slideUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            }
+            50% {
+                transform: scale(1.1);
+                box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid,
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--light-color);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gradient-primary);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-logo"></div>
+            <h3>Cauduro & Couto</h3>
+            <p>Carregando experiência...</p>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="#home" class="logo">Cauduro & Couto</a>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Início</a></li>
+                <li><a href="#services" class="nav-link">Serviços</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfólio</a></li>
+                <li><a href="#about" class="nav-link">Sobre</a></li>
+                <li><a href="#contact" class="nav-link">Contato</a></li>
+            </ul>
+            <button class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Cauduro & Couto</h1>
+                <h2 class="hero-subtitle">MARCENARIA</h2>
+                <p class="hero-description">Móveis sob medida de alto padrão. Transformamos seus sonhos em realidade com a mais refinada carpintaria e design exclusivo.</p>
+                <div class="cta-buttons">
+                    <a href="https://wa.me/5542932247093?text=Olá! Gostaria de solicitar um orçamento para móveis sob medida." class="btn btn-primary">
+                        <i class="fab fa-whatsapp"></i> Solicitar Orçamento
+                    </a>
+                    <a href="#portfolio" class="btn btn-outline">
+                        <i class="fas fa-eye"></i> Ver Projetos
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Nossos Serviços</h2>
+            <p class="section-subtitle">Especializados em móveis sob medida com acabamento impecável</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3 class="service-title">Cozinha</h3>
+                    <p class="service-description">Cozinhas planejadas com design funcional e materiais de primeira qualidade para otimizar seu espaço.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bed"></i>
+                    </div>
+                    <h3 class="service-title">Quarto</h3>
+                    <p class="service-description">Dormitórios completos com armários, camas e móveis personalizados para seu conforto e organização.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bath"></i>
+                    </div>
+                    <h3 class="service-title">Banheiro</h3>
+                    <p class="service-description">Móveis para banheiro resistentes à umidade com design elegante e funcional.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-couch"></i>
+                    </div>
+                    <h3 class="service-title">Sala</h3>
+                    <p class="service-description">Móveis para sala de estar e jantar que combinam estilo e praticidade para receber bem.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h3 class="service-title">Closet</h3>
+                    <p class="service-description">Closets personalizados com organização inteligente para otimizar seu guarda-roupa.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3 class="service-title">Churrasqueira</h3>
+                    <p class="service-description">Áreas gourmet completas com móveis sob medida para seus momentos de confraternização.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2 class="section-title">Nossos Projetos</h2>
+            <p class="section-subtitle">Conheça alguns dos nossos trabalhos realizados</p>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Cozinha Moderna</h3>
+                        <p class="portfolio-description">Projeto completo de cozinha planejada com ilha central e acabamentos em madeira nobre.</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <i class="fas fa-bed"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Suíte Master</h3>
+                        <p class="portfolio-description">Dormitório completo com closet integrado e móveis personalizados em tons amadeirados.</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <i class="fas fa-couch"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Sala de Estar</h3>
+                        <p class="portfolio-description">Móveis planejados para sala com rack, estantes e mesa de centro sob medida.</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Home Office</h3>
+                        <p class="portfolio-description">Escritório residencial com mesa, estantes e armários planejados para produtividade.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <i class="fas fa-hammer"></i>
+                </div>
+                <div class="about-text">
+                    <h3>Tradição e Qualidade</h3>
+                    <p>A Cauduro & Couto Marcenaria é especializada na criação de móveis sob medida de alto padrão. Com anos de experiência no mercado, combinamos tradição artesanal com técnicas modernas para entregar móveis únicos e duradouros.</p>
+                    <p>Nosso compromisso é transformar seus ambientes com móveis que refletem sua personalidade e atendem às suas necessidades específicas. Cada projeto é desenvolvido com atenção aos detalhes e materiais selecionados.</p>
+                    <p>Do planejamento à instalação, acompanhamos todo o processo para garantir sua total satisfação com o resultado final.</p>
+                    
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Projetos Realizados</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">15+</div>
+                            <div class="stat-label">Anos de Experiência</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Satisfação dos Clientes</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Entre em Contato</h2>
+            <p class="section-subtitle">Solicite seu orçamento sem compromisso</p>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3 style="margin-bottom: 1.5rem; color: var(--dark-color);">Informações de Contato</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>WhatsApp</h4>
+                            <p><a href="https://wa.me/5542932247093?text=Olá! Gostaria de solicitar um orçamento para móveis sob medida.">(42) 3224-7093</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>E-mail</h4>
+                            <p><a href="mailto:cauduro.couto@hotmail.com">cauduro.couto@hotmail.com</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Instagram</h4>
+                            <p><a href="https://instagram.com/caudurocouto" target="_blank">@caudurocouto</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Localização</h4>
+                            <p>Rua Saldanha da Gama<br>Região de Ponta Grossa - PR</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3 style="margin-bottom: 1.5rem; color: var(--dark-color);">Solicite seu Orçamento</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nome Completo</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Tipo de Móvel</label>
+                            <select id="service" name="service" style="width: 100%; padding: 1rem; border: 2px solid rgba(184, 84, 80, 0.1); border-radius: 10px; font-size: 1rem; background: var(--light-color);">
+                                <option value="">Selecione o tipo de móvel</option>
+                                <option value="cozinha">Cozinha Planejada</option>
+                                <option value="quarto">Móveis para Quarto</option>
+                                <option value="banheiro">Móveis para Banheiro</option>
+                                <option value="sala">Móveis para Sala</option>
+                                <option value="closet">Closet</option>
+                                <option value="churrasqueira">Área Gourmet/Churrasqueira</option>
+                                <option value="escritorio">Home Office</option>
+                                <option value="outros">Outros</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Descrição do Projeto</label>
+                            <textarea id="message" name="message" placeholder="Descreva seu projeto, medidas aproximadas, prazo desejado..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                            <i class="fab fa-whatsapp"></i> Enviar via WhatsApp
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Cauduro & Couto Marcenaria</h3>
+                    <p>Especialistas em móveis sob medida de alto padrão. Transformamos seus sonhos em realidade com qualidade e tradição.</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com/caudurocouto" class="social-link" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/5542932247093" class="social-link" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="mailto:cauduro.couto@hotmail.com" class="social-link">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Serviços</h3>
+                    <p><a href="#services">Cozinhas Planejadas</a></p>
+                    <p><a href="#services">Móveis para Quarto</a></p>
+                    <p><a href="#services">Móveis para Banheiro</a></p>
+                    <p><a href="#services">Closets</a></p>
+                    <p><a href="#services">Área Gourmet</a></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <p><i class="fab fa-whatsapp"></i> (42) 3224-7093</p>
+                    <p><i class="fas fa-envelope"></i> cauduro.couto@hotmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Rua Saldanha da Gama</p>
+                    <p>Região de Ponta Grossa - PR</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Cauduro & Couto Marcenaria. Todos os direitos reservados. | Móveis sob medida de alto padrão</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/5542932247093?text=Olá! Gostaria de mais informações sobre móveis sob medida." class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Loading Screen
+        window.addEventListener('load', function() {
+            const loader = document.getElementById('loader');
+            setTimeout(() => {
+                loader.style.opacity = '0';
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 500);
+            }, 2000);
+        });
+
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Header Background on Scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(248, 246, 243, 0.98)';
+                header.style.backdropFilter = 'blur(15px)';
+            } else {
+                header.style.background = 'rgba(248, 246, 243, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            }
+        });
+
+        // Intersection Observer for Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    entry.target.style.animationDelay = '0.1s';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animations
+        document.querySelectorAll('.service-card, .portfolio-item, .about-content, .contact-content').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Contact Form Handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+            
+            let whatsappMessage = `Olá! Meu nome é ${name}.\n\n`;
+            if (email) whatsappMessage += `E-mail: ${email}\n`;
+            if (service) whatsappMessage += `Tipo de móvel: ${service}\n`;
+            whatsappMessage += `\nMensagem: ${message}\n\n`;
+            whatsappMessage += `Gostaria de solicitar um orçamento. Obrigado(a)!`;
+            
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            const whatsappURL = `https://wa.me/5542932247093?text=${encodedMessage}`;
+            
+            window.open(whatsappURL, '_blank');
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navMenu = document.querySelector('.nav-menu');
+
+        mobileMenu.addEventListener('click', function() {
+            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Parallax Effect for Hero Section
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Service Cards Hover Animation
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-15px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Portfolio Items Hover Effect
+        document.querySelectorAll('.portfolio-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+                this.style.boxShadow = '0 25px 70px rgba(184, 84, 80, 0.25)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+                this.style.boxShadow = '0 10px 40px rgba(184, 84, 80, 0.1)';
+            });
+        });
+
+        // Stats Counter Animation
+        function animateStats() {
+            const stats = document.querySelectorAll('.stat-number');
+            
+            stats.forEach(stat => {
+                const target = parseInt(stat.textContent);
+                let current = 0;
+                const increment = target / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        stat.textContent = target + (stat.textContent.includes('+') ? '+' : '') + (stat.textContent.includes('%') ? '%' : '');
+                        clearInterval(timer);
+                    } else {
+                        stat.textContent = Math.floor(current) + (stat.textContent.includes('+') ? '+' : '') + (stat.textContent.includes('%') ? '%' : '');
+                    }
+                }, 30);
+            });
+        }
+
+        // Trigger stats animation when section is visible
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateStats();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+        // Add loading animation to buttons
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const original = this.innerHTML;
+                this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Carregando...';
+                
+                setTimeout(() => {
+                    this.innerHTML = original;
+                }, 2000);
+            });
+        });
+
+        // Smooth reveal animation for sections
+        const revealElements = document.querySelectorAll('section');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.8s ease';
+            revealObserver.observe(el);
+        });
+
+        // Add ripple effect to buttons
+        function addRippleEffect(button) {
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.classList.add('ripple');
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        }
+
+        // Apply ripple effect to all buttons
+        document.querySelectorAll('.btn').forEach(addRippleEffect);
+    </script>
+
+    <style>
+        /* Ripple effect */
+        .btn {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(0);
+            animation: ripple-animation 0.6s ease-out;
+            pointer-events: none;
+        }
+
+        @keyframes ripple-animation {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        /* Additional responsive improvements */
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+            
+            .btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .services-grid,
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        /* Enhanced mobile navigation */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 5px 20px var(--shadow);
+                border-radius: 0 0 10px 10px;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+        }
+    </style>
+</body>
+</html>
